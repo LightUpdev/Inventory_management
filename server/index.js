@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import userRoute from "./routes/userRoute.js";
 import { errorHandler } from "./middleware/errorMiddleware.js";
+import cookieParser from "cookie-parser";
 
 // PORT
 const PORT = process.env.PORT || 5000;
@@ -18,7 +19,9 @@ const app = express();
 
 // MIDDLEWARE
 app.use(cors());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // ROUTE MIDDLEWARE

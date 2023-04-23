@@ -8,6 +8,7 @@ const generateToken = (id) => {
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// REGISTER USER CODE
 const registerUser = asyncHandler(async (req, res) => {
   const { name, photo, bio, email, phone_number, password } = req.body;
 
@@ -43,6 +44,8 @@ const registerUser = asyncHandler(async (req, res) => {
 
   //CREATE TOKEN
   const token = generateToken(newUser._id);
+
+  //SEND HTTP-ONLY COOKIE
 
   if (newUser) {
     const { _id, name, photo, bio, email, phone_number, password } = newUser;

@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
-
 const userSchema = new mongoose.Schema(
   {
     name: { type: String, required: [true, "Please add a name"] },
@@ -39,7 +38,7 @@ const userSchema = new mongoose.Schema(
 );
 
 //ENCRYPT PASSWORD BEFORE SAVING TO DB
-userSchema.pre("save", async function (next){
+userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
     return next();
   }
