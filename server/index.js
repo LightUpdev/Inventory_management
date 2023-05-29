@@ -35,6 +35,12 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/user", (req, res) => {
+  res.status(200).json({
+    message: req.cookies,
+  });
+});
+
 // ERROR MIDDLEWARE
 app.use(errorHandler);
 
